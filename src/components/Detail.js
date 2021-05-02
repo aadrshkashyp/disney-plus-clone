@@ -31,11 +31,10 @@ function Detail() {
 
             </Controls>
             <SubTitle>
-                Episodes: 24  -  Aired: Oct 3, 2020 to Mar 27, 2021
+                24 Episodes  -  Aired from Oct 3, 2020 to Mar 27, 2021
             </SubTitle>
             <Description>
                 Yuuji experiences first-hand the threat these Curses pose to society as he discovers his own newfound powers. Introduced to the Tokyo Metropolitan Jujutsu Technical High School, he begins to walk down a path from which he cannot return—the path of a Jujutsu sorcerer.
-
             </Description>
         </Container>
     )
@@ -128,7 +127,7 @@ const AddButton = styled.button
     `
 const GroupWatchButton = styled(AddButton)
     `
-         background: rgba(0, 0, 0;
+         background: rgba(0, 0, 0);
     `
 const SubTitle = styled.div`
    color: rgb(249, 249, 249);
@@ -138,10 +137,10 @@ const SubTitle = styled.div`
   
 `
 
-const Description = styled.div`
-line-height: 1.4;
-font-size: 20px;
-margin-top: 16px;
+const Description = styled.div
+    `
+            line-height: 1.4;
+            font-size: 20px;
+            margin-top: 16px;
+     `
 
- 
-`
