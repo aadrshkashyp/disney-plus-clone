@@ -4,7 +4,7 @@ import styled from 'styled-components'
 function Header() {
     return (
         <Container>
-            Header
+            Header tewst
         </Container>
     )
 }
@@ -12,6 +12,6 @@ function Header() {
 export default Header
 const Container = styled.div
     `
-      height: 70px;
-      backgound
+      height: 8000px;
+      backgound: red;
     `
