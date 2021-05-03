@@ -1,14 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { useParams } from "react-router-dom"
+import db from "../firebase"
 
 function Detail() {
+    const { id } = useParams();
+    const [movie, setMovie] = useState()
+
+    useEffect(() => {
+        // Grab the movie info from db
+        db.collection("movies")
+            .doc(id)
+            .get()
+            .then((doc) => {
+                if (doc.exists) {
+                    //save the movie data
+                    setMovie(doc.data());
+                }
+                else {
+                    //redirect to homepage
+                }
+            })
+
+    }, [])
+
     return (
         <Container>
             <Background>
-                <img src="https://www.denofgeek.com/wp-content/uploads/2021/04/jujutsu-kaisen-season-2-movie-prequel-details.jpeg" />
+                <img src={movie.backgroundImg} alt="backgroundImg" />
             </Background>
             <ImageTitle>
-                <img src="https://upload.wikimedia.org/wikipedia/fr/4/4d/Jujutsu_kaisen_logo_fr.png" />
+                <img src={movie.titleImg} />
             </ImageTitle>
             <Controls>
                 <PlayButton>
@@ -31,10 +53,10 @@ function Detail() {
 
             </Controls>
             <SubTitle>
-                24 Episodes  -  Aired from Oct 3, 2020 to Mar 27, 2021
+                {movie.subTitle}
             </SubTitle>
             <Description>
-                Yuuji experiences first-hand the threat these Curses pose to society as he discovers his own newfound powers. Introduced to the Tokyo Metropolitan Jujutsu Technical High School, he begins to walk down a path from which he cannot return—the path of a Jujutsu sorcerer.
+                {movie.description}
             </Description>
         </Container>
     )
