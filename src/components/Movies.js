@@ -12,38 +12,12 @@ function Movies() {
             <Content>
                 {movies &&
                     movies.map((movie) => (
-                        <Wrap>
+                        <Wrap key={movie.id}>
                             <img src={movie.cardImg} />
                         </Wrap>
-                    )
-
-                    )
+                    ))
 
                 }
-                <Wrap>
-                    <img src="https://media.comicbook.com/2020/09/jujutsu-kaisen-anime-poster-key-visual-1236862-1280x0.jpeg" />
-                </Wrap>
-                <Wrap>
-                    <img src="https://media.comicbook.com/2020/09/jujutsu-kaisen-anime-poster-key-visual-1236862-1280x0.jpeg" />
-                </Wrap>
-                <Wrap>
-                    <img src="https://media.comicbook.com/2020/09/jujutsu-kaisen-anime-poster-key-visual-1236862-1280x0.jpeg" />
-                </Wrap>
-                <Wrap>
-                    <img src="https://media.comicbook.com/2020/09/jujutsu-kaisen-anime-poster-key-visual-1236862-1280x0.jpeg" />
-                </Wrap>
-                <Wrap>
-                    <img src="https://media.comicbook.com/2020/09/jujutsu-kaisen-anime-poster-key-visual-1236862-1280x0.jpeg" />
-                </Wrap>
-                <Wrap>
-                    <img src="https://media.comicbook.com/2020/09/jujutsu-kaisen-anime-poster-key-visual-1236862-1280x0.jpeg" />
-                </Wrap>
-                <Wrap>
-                    <img src="https://media.comicbook.com/2020/09/jujutsu-kaisen-anime-poster-key-visual-1236862-1280x0.jpeg" />
-                </Wrap>
-                <Wrap>
-                    <img src="https://media.comicbook.com/2020/09/jujutsu-kaisen-anime-poster-key-visual-1236862-1280x0.jpeg" />
-                </Wrap>
             </Content>
         </Container>
     )
