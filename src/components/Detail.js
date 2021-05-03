@@ -26,38 +26,42 @@ function Detail() {
 
     return (
         <Container>
-            <Background>
-                <img src={movie.backgroundImg} alt="backgroundImg" />
-            </Background>
-            <ImageTitle>
-                <img src={movie.titleImg} />
-            </ImageTitle>
-            <Controls>
-                <PlayButton>
-                    <img src="/images/play-icon-black.png" />
-                    <span>Play</span>
-                </PlayButton>
+            {movie && (
+                <>
+                <Background>
+                    <img src={movie.backgroundImg} alt="backgroundImg" />
+                </Background>
+                <ImageTitle>
+                    <img src={movie.titleImg} />
+                </ImageTitle>
+                <Controls>
+                    <PlayButton>
+                        <img src="/images/play-icon-black.png" />
+                        <span>Play</span>
+                    </PlayButton>
 
-                <TrailerButton>
-                    <img src="/images/play-icon-white.png" />
-                    <span>Trailer</span>
-                </TrailerButton>
+                    <TrailerButton>
+                        <img src="/images/play-icon-white.png" />
+                        <span>Trailer</span>
+                    </TrailerButton>
 
-                <AddButton>
-                    <span>+</span>
-                </AddButton>
+                    <AddButton>
+                        <span>+</span>
+                    </AddButton>
 
-                <GroupWatchButton>
-                    <img src="/images/group-icon.png" />
-                </GroupWatchButton>
+                    <GroupWatchButton>
+                        <img src="/images/group-icon.png" />
+                    </GroupWatchButton>
 
-            </Controls>
-            <SubTitle>
-                {movie.subTitle}
-            </SubTitle>
-            <Description>
-                {movie.description}
-            </Description>
+                </Controls>
+                <SubTitle>
+                    {movie.subTitle}
+                </SubTitle>
+                <Description>
+                    {movie.description}
+                </Description>
+                </>
+            })
         </Container>
     )
 }
