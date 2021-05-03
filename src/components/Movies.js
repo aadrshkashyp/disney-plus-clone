@@ -1,11 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
+import { selectMovies } from "../features/movie/movieSlice"
+import { useSelector } from "react-redux"
 
 function Movies() {
+
+    const movies = useSelector(selectMovies);
     return (
         <Container>
             <h4>Recommended for You</h4>
             <Content>
+                {movies &&
+                    movies.map((movie) => (
+                        <Wrap>
+                            <img src={movie.cardImg} />
+                        </Wrap>
+                    )
+
+                    )
+
+                }
                 <Wrap>
                     <img src="https://media.comicbook.com/2020/09/jujutsu-kaisen-anime-poster-key-visual-1236862-1280x0.jpeg" />
                 </Wrap>
