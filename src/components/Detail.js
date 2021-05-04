@@ -28,40 +28,45 @@ function Detail() {
         <Container>
             {movie && (
                 <>
-                <Background>
-                    <img src={movie.backgroundImg} alt="backgroundImg" />
-                </Background>
-                <ImageTitle>
-                    <img src={movie.titleImg} />
-                </ImageTitle>
-                <Controls>
-                    <PlayButton>
-                        <img src="/images/play-icon-black.png" />
-                        <span>Play</span>
-                    </PlayButton>
 
-                    <TrailerButton>
-                        <img src="/images/play-icon-white.png" />
-                        <span>Trailer</span>
-                    </TrailerButton>
+                    <Background>
+                        <img src={movie.backgroundImg} alt="backgroundImg" />
+                    </Background>
+                    <ImageTitle>
+                        <img src={movie.titleImg} />
+                    </ImageTitle>
+                    <Controls>
+                        <PlayButton>
+                            <img src="/images/play-icon-black.png" />
+                            <span>Play</span>
+                        </PlayButton>
 
-                    <AddButton>
-                        <span>+</span>
-                    </AddButton>
+                        <TrailerButton>
+                            <img src="/images/play-icon-white.png" />
+                            <span>Trailer</span>
+                        </TrailerButton>
 
-                    <GroupWatchButton>
-                        <img src="/images/group-icon.png" />
-                    </GroupWatchButton>
+                        <AddButton>
+                            <span>+</span>
+                        </AddButton>
 
-                </Controls>
-                <SubTitle>
-                    {movie.subTitle}
-                </SubTitle>
-                <Description>
-                    {movie.description}
-                </Description>
+                        <GroupWatchButton>
+                            <img src="/images/group-icon.png" />
+                        </GroupWatchButton>
+
+                    </Controls>
+                    <SubTitle>
+                        {movie.subTitle}
+                    </SubTitle>
+                    <Description>
+                        {movie.description}
+                    </Description>
                 </>
-            })
+
+            )
+
+            }
+
         </Container>
     )
 }
