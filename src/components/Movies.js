@@ -19,7 +19,6 @@ function Movies() {
                             </Link>
                         </Wrap>
                     ))
-
                 }
             </Content>
         </Container>
