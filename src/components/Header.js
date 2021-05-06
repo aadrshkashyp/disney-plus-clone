@@ -1,15 +1,64 @@
-import React from 'react'
-import { findRenderedComponentWithType } from 'react-dom/test-utils'
+import React, { useEffect } from 'react'
+import { auth, provider } from "../firebase"
 import styled from 'styled-components'
+import { useHistory } from "react-router-dom"
 import {
     selectUserName,
     selectUserPhoto,
+    setUserLogin,
+    setSignOut,
 } from "../features/user/userSlice"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 function Header() {
+    const dispatch = useDispatch()
+    const history = useHistory()
     const userName = useSelector(selectUserName);
     const userPhoto = useSelector(selectUserPhoto);
+
+    useEffect(() => {
+
+        auth.onAuthStateChanged(async (user) => {
+
+            if (user) {
+                dispatch(setUserLogin({
+                    name: user.displayName,
+                    email: user.email,
+                    photo: user.photoURL
+                }))
+
+                history.push("/")
+
+            }
+        })
+
+    }, [])
+
+    const signIn = () => {
+
+        auth.signInWithPopup(provider)
+            .then((result) => {
+                let user = result.user
+                dispatch(setUserLogin({
+                    name: user.displayName,
+                    email: user.email,
+                    photo: user.photoURL
+                }))
+                history.push("/home")
+
+            })
+    }
+
+
+    const signOut = () => {
+        auth.signOut()
+            .then(() => {
+
+                dispatch(setSignOut());
+                history.push("/login")
+
+            })
+    }
     return (
         <Nav>
             <Logo src="/images/logo.svg" />
@@ -17,7 +66,7 @@ function Header() {
 
                 <LoginContainer>
 
-                    <Login>Login</Login>
+                    <Login onClick={signIn}>Login</Login>
 
                 </LoginContainer>
             ) :
@@ -51,7 +100,7 @@ function Header() {
                         </a>
 
                     </NavMenu>
-                    <UserImg src="https://oldnick.work/tools/autoins/assets/img/favicon.png" />
+                    <UserImg onClick={signOut} src={userPhoto} />
 
                 </>
 
@@ -151,5 +200,5 @@ const LoginContainer = styled.div
         flex: 1;
         display: flex;
         justify-content: flex-end;
-        
+
     `

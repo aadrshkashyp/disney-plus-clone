@@ -19,7 +19,7 @@ function Home() {
             })
             dispatch(setMovies(tempMovies));
         })
-    }, [])
+    }, [dispatch])
 
     return (
         <Container>
