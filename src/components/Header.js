@@ -15,7 +15,12 @@ function Header() {
             <Logo src="/images/logo.svg" />
             { !userName ? (
 
-                <Login>Login</Login>) :
+                <LoginContainer>
+
+                    <Login>Login</Login>
+
+                </LoginContainer>
+            ) :
 
                 <>
 
@@ -131,5 +136,20 @@ const Login = styled.div
       letter-spacing: 1.5px;
       text-transform: uppercase;
       background-color: rgba(0, 0, 0, 0.6);
+      cursor: pointer;
 
+      &:hover {
+          background-color: #f9f9f9;
+          color: #000;
+          border-color: transparent;
+      }
+
+    `
+
+const LoginContainer = styled.div
+    `
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        
     `
