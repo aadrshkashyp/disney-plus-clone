@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect } from 'react'
 import { auth, provider } from "../firebase"
 import styled from 'styled-components'
@@ -6,7 +7,7 @@ import {
     selectUserName,
     selectUserPhoto,
     setUserLogin,
-    setSignOut,
+    setSignOut
 } from "../features/user/userSlice"
 import { useDispatch, useSelector } from "react-redux"
 
@@ -32,7 +33,7 @@ function Header() {
             }
         })
 
-    }, [])
+    }, [dispatch, history])
 
     const signIn = () => {
 
