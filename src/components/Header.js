@@ -1,38 +1,57 @@
 import React from 'react'
+import { findRenderedComponentWithType } from 'react-dom/test-utils'
 import styled from 'styled-components'
+import {
+    selectUserName,
+    selectUserPhoto,
+} from "../features/user/userSlice"
+import { useSelector } from "react-redux"
 
 function Header() {
+    const userName = useSelector(selectUserName);
+    const userPhoto = useSelector(selectUserPhoto);
     return (
         <Nav>
             <Logo src="/images/logo.svg" />
-            <NavMenu>
-                <a>
-                    <img src="/images/home-icon.svg" />
-                    <span>HOME</span>
-                </a>
-                <a>
-                    <img src="/images/search-icon.svg" />
-                    <span>SEARCH</span>
-                </a>
-                <a>
-                    <img src="/images/watchlist-icon.svg" />
-                    <span>WATCHLIST</span>
-                </a>
-                <a>
-                    <img src="/images/original-icon.svg" />
-                    <span>ORIGINALS</span>
-                </a>
-                <a>
-                    <img src="/images/movie-icon.svg" />
-                    <span>MOVIES</span>
-                </a>
-                <a>
-                    <img src="/images/series-icon.svg" />
-                    <span>SERIES</span>
-                </a>
+            { !userName ? (
 
-            </NavMenu>
-            <UserImg src="https://oldnick.work/tools/autoins/assets/img/favicon.png" />
+                <Login>Login</Login>) :
+
+                <>
+
+                    <NavMenu>
+                        <a>
+                            <img src="/images/home-icon.svg" alt="" />
+                            <span>HOME</span>
+                        </a>
+                        <a>
+                            <img src="/images/search-icon.svg" alt="" />
+                            <span>SEARCH</span>
+                        </a>
+                        <a>
+                            <img src="/images/watchlist-icon.svg" alt="" />
+                            <span>WATCHLIST</span>
+                        </a>
+                        <a>
+                            <img src="/images/original-icon.svg" alt="" />
+                            <span>ORIGINALS</span>
+                        </a>
+                        <a>
+                            <img src="/images/movie-icon.svg" alt="" />
+                            <span>MOVIES</span>
+                        </a>
+                        <a>
+                            <img src="/images/series-icon.svg" alt="" />
+                            <span>SERIES</span>
+                        </a>
+
+                    </NavMenu>
+                    <UserImg src="https://oldnick.work/tools/autoins/assets/img/favicon.png" />
+
+                </>
+
+            }
+
         </Nav>
     )
 }
@@ -103,4 +122,14 @@ const UserImg = styled.img
       height: 48px;
       border-radius: 50%;
       cursor: pointer;
+    `
+const Login = styled.div
+    `
+      border: 1px solid #f9f9f9;
+      padding: 8px 16px;
+      border-radius: 4px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background-color: rgba(0, 0, 0, 0.6);
+
     `

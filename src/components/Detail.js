@@ -22,7 +22,7 @@ function Detail() {
                 }
             })
 
-    }, [])
+    }, [id])
 
     return (
         <Container>
@@ -33,16 +33,16 @@ function Detail() {
                         <img src={movie.backgroundImg} alt="backgroundImg" />
                     </Background>
                     <ImageTitle>
-                        <img src={movie.titleImg} />
+                        <img src={movie.titleImg} alt="" />
                     </ImageTitle>
                     <Controls>
                         <PlayButton>
-                            <img src="/images/play-icon-black.png" />
+                            <img src="/images/play-icon-black.png" alt="" />
                             <span>Play</span>
                         </PlayButton>
 
                         <TrailerButton>
-                            <img src="/images/play-icon-white.png" />
+                            <img src="/images/play-icon-white.png" alt="" />
                             <span>Trailer</span>
                         </TrailerButton>
 
@@ -51,7 +51,7 @@ function Detail() {
                         </AddButton>
 
                         <GroupWatchButton>
-                            <img src="/images/group-icon.png" />
+                            <img src="/images/group-icon.png" alt="" />
                         </GroupWatchButton>
 
                     </Controls>
